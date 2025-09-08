@@ -53,8 +53,8 @@
     ?>
 <!--    do przesylani danych dla php-->
     <form action="" method="post">
-        <input type="number" name="name" id="">
-        <input type="checkbox" name="regulamin" id="">
+        <label for="name">imie</label><input type="number" name="name" id="name">
+        <label for="regulamin">regulamin</label><input type="checkbox" name="regulamin" id="regulamin">
         <input type="submit" value="post">
     </form>
     <?php

@@ -21,7 +21,13 @@ $jedzenie['uzywki'][3]='kawa';
 print($jedzenie["owoce"]['3'] . '<br>');
 print($jedzenie["warzywa"][1] . '<br>');
 print($jedzenie["uzywki"][3] . '<br>');
-print_r($jedzenie)
+print_r($jedzenie);
+
+
+$arr=array(3,54,6,3,43,2);
+$arr[3];
+$arr2=[5,[2,3]];
+print_r($arr2);
 
 ?>
 </pre>
