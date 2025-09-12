@@ -16,6 +16,10 @@
 </form>
 <?php
 $error=0;
+echo !empty($_POST['imie']);
+echo "<br />";
+echo strlen($_POST['imie'])>2;
+echo "<br />";
     if(!empty($_POST['imie'])&&strlen($_POST['imie'])>2){
         $imie=$_POST['imie'];
     }else{
