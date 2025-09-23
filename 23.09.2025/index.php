@@ -8,22 +8,31 @@
     <title>Document</title>
 </head>
 <body>
+<a href="./check_cookie.php"><button>sprawdz ciasteczko</button></a>
 <form action="" method="post">
-    <input type="checkbox" name="owoce[]" value="1" id="">
-    <input type="checkbox" name="owoce[]" value="2" id="">
-    <input type="checkbox" name="owoce[]" value="3" id="">
-    <input type="checkbox" name="owoce[]" value="4" id="">
-    <input type="checkbox" name="owoce[]" value="5" id="">
-    <input type="submit" value="przeslij">
+    <label for="nazwa">Nazwa ciasteczka</label><input type="text" name="nazwa" id="nazwa">
+    <label for="ile">Ile czasu ma istnieć w s</label><input type="number" name="ile" id="ile">
+    <input type="submit" value="nowe ciastko">
 </form>
+<!--<form action="" method="post">-->
+<!--    <input type="checkbox" name="owoce[]" value="1" id="">-->
+<!--    <input type="checkbox" name="owoce[]" value="2" id="">-->
+<!--    <input type="checkbox" name="owoce[]" value="3" id="">-->
+<!--    <input type="checkbox" name="owoce[]" value="4" id="">-->
+<!--    <input type="checkbox" name="owoce[]" value="5" id="">-->
+<!--    <input type="submit" value="przeslij">-->
+<!--</form>-->
 <?php
-    if(!empty($_POST['owoce'])&&is_array($_POST['owoce'])){
-        echo "<pre>";
-        print_r($_POST['owoce']);
-        echo "</pre>";
-        echo $_POST['owoce'][0];
+//    if(!empty($_POST['owoce'])&&is_array($_POST['owoce'])){
+//        echo "<pre>";
+//        print_r($_POST['owoce']);
+//        echo "</pre>";
+//        echo $_POST['owoce'][0];
+//    }
+    if(!empty($_POST['nazwa']) && !empty($_POST['ile'])&&is_numeric($_POST['ile']) && $_POST['ile'] >= 10 ) {
+        setcookie($_POST['nazwa'], 1, time()+$_POST['ile']);
+        echo"nowe ciastko";
     }
-
 ?>
 </body>
 </html>
