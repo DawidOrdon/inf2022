@@ -10,6 +10,10 @@ function connect($db_name='inf2022')
         return false;
     }
 }
+function kwadrat($a)
+{
+    return $a*$a;
+}
 
 function nav(){
     echo"
