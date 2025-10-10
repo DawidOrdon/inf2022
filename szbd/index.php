@@ -71,7 +71,7 @@ if(!empty($_POST['zapytanie'])){
 </div>
 <div class="zapytanie">
     <form action="" method="post">
-        <textarea name="zapytanie" id="" cols="30" rows="5"><?php echo $_SESSION['zapytanie']!=null ? $_SESSION['zapytanie'] : "";?></textarea><br />
+        <textarea name="zapytanie" id="" cols="30" rows="5"><?php echo !empty($_SESSION['zapytanie']) ? $_SESSION['zapytanie'] : "";?></textarea><br />
         <button>wyslij</button>
     </form>
     <table>
