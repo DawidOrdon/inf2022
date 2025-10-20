@@ -71,8 +71,6 @@
     <div class="item"><a href="?cena=5000&mnoznik=25">cena 5000 mnożnik + 25</a></div>
     <div class="item"><a href="?cena=15000&mnoznik=50">cena 15000 mnożnik + 50</a></div>
     <div class="item"><a href="?cena=50000&mnoznik=100">cena 50000 mnożnik + 100</a></div>
-
 </section>
-
 </body>
 </html>
