@@ -7,27 +7,39 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        body{
+            display: flex;
+        }
         div{
-            width: 100px;
-            height: 100px;
+            width: 200px;
+            height: 200px;
             border: 1px solid black;
+            border-radius: 20px;
             background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
 <body>
-<div id="klik">klik</div>
-<div onmouseover="alert('over')">mouseover</div>
-<div onmouseout="alert('out')">out</div>
-<input type="text" onkeydown="alert('klik')">
-<select name="" id="" onchange="alert('zmiana')">
-    <option value="">1</option>
-    <option value="">2</option>
-</select>
-
+<div id="klik">kliknij mnie</div>
+<div id="points">0</div>
+<div id="upgrade">+1/20</div>
 <script>
+    let points=0
+    let klik = 1
     document.getElementById('klik').addEventListener('click', function (){
-        alert('klik')
+        points+=klik
+        document.getElementById('points').innerHTML=points
+    })
+    document.getElementById('upgrade').addEventListener('mouseenter',function (){
+        if(points>=20){
+            points-=20
+            klik+=1
+            document.getElementById('points').innerHTML=points
+            document.getElementById('klik').innerHTML="kliknij mnie x"+klik
+        }
     })
 </script>
 </body>
