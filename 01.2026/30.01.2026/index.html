@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid black;
+            width: 40px;
+            height: 40px;
+            font-size: 30px;
+            text-align: center;
+            float:left;
+        }
+        .clear{
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<div id="blok1" onclick="klik(this)" class="clear"></div>
+<div id="blok2" onclick="klik(this)"></div>
+<div id="blok3" onclick="klik(this)"></div>
+<div id="blok4" onclick="klik(this)" class="clear"></div>
+<div id="blok5" onclick="klik(this)"></div>
+<div id="blok6" onclick="klik(this)"></div>
+<div id="blok7" onclick="klik(this)" class="clear"></div>
+<div id="blok8" onclick="klik(this)"></div>
+<div id="blok9" onclick="klik(this)"></div>
+
+<p>ruch:<p id='ruch'></p></p>
+<p>punkty:<p id='punkty'></p></p>
+<button onclick="reset()">reset</button>
+
+<script>
+    let licznik=0;
+    let px=0;
+    let po=0;
+    document.getElementById('ruch').innerHTML='X'
+    document.getElementById('punkty').innerHTML='X:0 O:0'
+    function klik(e){
+        // alert(id)
+        if(e.innerHTML==""){
+            // alert('krok')
+            if (licznik%2==0){
+                e.innerHTML="X"
+                document.getElementById('ruch').innerHTML='O'
+
+            }else{
+                e.innerHTML="O"
+                document.getElementById('ruch').innerHTML='X'
+
+            }
+            if(sprawdz()){
+                alert("wygrana")
+                if (licznik%2==0){
+                    px++
+                }else{
+                    po++
+                }
+                document.getElementById('punkty').innerHTML="X:"+px+" O:"+po
+            }
+            licznik++
+        }
+    }
+    function sprawdz(){
+        if(document.getElementById('blok1').innerHTML==document.getElementById('blok2').innerHTML&&document.getElementById('blok2').innerHTML==document.getElementById('blok3').innerHTML&&document.getElementById('blok3').innerHTML!=""){
+            return true
+        }
+        if(document.getElementById('blok4').innerHTML==document.getElementById('blok5').innerHTML&&document.getElementById('blok5').innerHTML==document.getElementById('blok6').innerHTML&&document.getElementById('blok6').innerHTML!=""){
+            return true
+        }
+        if(document.getElementById('blok7').innerHTML==document.getElementById('blok8').innerHTML&&document.getElementById('blok8').innerHTML==document.getElementById('blok9').innerHTML&&document.getElementById('blok9').innerHTML!=""){
+            return true
+        }
+        if(document.getElementById('blok1').innerHTML==document.getElementById('blok4').innerHTML&&document.getElementById('blok4').innerHTML==document.getElementById('blok7').innerHTML&&document.getElementById('blok7').innerHTML!=""){
+            return true
+        }
+        if(document.getElementById('blok2').innerHTML==document.getElementById('blok5').innerHTML&&document.getElementById('blok5').innerHTML==document.getElementById('blok8').innerHTML&&document.getElementById('blok8').innerHTML!=""){
+            return true
+        }
+        if(document.getElementById('blok3').innerHTML==document.getElementById('blok6').innerHTML&&document.getElementById('blok6').innerHTML==document.getElementById('blok9').innerHTML&&document.getElementById('blok9').innerHTML!=""){
+            return true
+        }
+        if(document.getElementById('blok1').innerHTML==document.getElementById('blok5').innerHTML&&document.getElementById('blok5').innerHTML==document.getElementById('blok9').innerHTML&&document.getElementById('blok9').innerHTML!=""){
+            return true
+        }
+        if(document.getElementById('blok3').innerHTML==document.getElementById('blok5').innerHTML&&document.getElementById('blok5').innerHTML==document.getElementById('blok7').innerHTML&&document.getElementById('blok7').innerHTML!=""){
+            return true
+        }
+    }
+    function reset(){
+
+        for(let i=1; i<=9;i++){
+            document.getElementById("blok"+i).innerHTML=""
+        }
+    }
+</script>
+</body>
+</html>

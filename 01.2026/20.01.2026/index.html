@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<input type="number" value="43" id="numer1">
+<input type="number" value="4433" id="numer2">
+
+<p id="wynik">wynik </p>
+<p id="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consectetur culpa dolor enim et exercitationem illum incidunt laborum maxime nam numquam possimus, quasi quis repellat reprehenderit, sapiente tempore veniam! Ut?</p>
+<button onclick="klik('click')">kliknij mnie</button>
+<textarea id="tekst"></textarea>
+<input type="color" name="" id="kolor">
+<button onclick="dodaj()">nowy paragraf</button>
+<div id="paragrafy"></div>
+<script>
+    {
+        // const liczba = prompt('podaj liczbe')
+        // console.log(liczba)
+        // let potwierdzenie = confirm('czy twoja liczba to: '+liczba)
+        // console.log(potwierdzenie)
+        // alert(potwierdzenie)
+        // console.log("end")
+        // const para = document.getElementById('para')
+        // para.innerHTML='witaj swiecie'
+        // console.log(para)
+        // console.log(document.getElementById('numer').value)
+    }
+        function klik(klik){
+        alert(klik)
+            let liczba1 = parseInt(document.getElementById('numer1').value)
+            let liczba2 = parseInt(document.getElementById('numer2').value)
+            let wynik = eval(liczba1+liczba2)
+            document.getElementById('wynik').innerHTML="wynik:"+wynik
+        }
+        function dodaj(){
+            let paragraf = document.getElementById('tekst').value
+            const element = document.createElement('p')
+            element.innerHTML=paragraf
+            element.style.color=document.getElementById('kolor').value
+            console.log(element)
+            document.getElementById('paragrafy').appendChild(element)
+        }
+    </script>
+    <script src="./scritp.js"></script>
+</body>
+</html>
