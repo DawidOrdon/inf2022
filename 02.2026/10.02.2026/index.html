@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 40px;
+            height: 40px;
+            float: left;
+            border:1px solid black;
+            background-color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+x:<input type="number" name="x" id="x">
+y:<input type="number" name="y" id="y">
+<button onclick="generate()">generuj</button>
+<p id="k"></p>
+<section id="pole"></section>
+<script>
+    function generate(){
+        xk=parseInt(document.getElementById('x').value)
+        yk=parseInt(document.getElementById('y').value)
+        pole=document.getElementById('pole')
+        pole.innerHTML=''
+        for (let x=0;x<xk;x++){
+            for (let y=0;y<yk;y++){
+                let div = document.createElement('div')
+                div.classList='blok'
+                div.setAttribute('x',x)
+                div.setAttribute('y',y)
+                pole.appendChild(div)
+            }
+            let koniec = document.createElement('div')
+            koniec.style.clear="both"
+            koniec.style.width='0'
+            koniec.style.borderWidth='0'
+            pole.appendChild(koniec)
+        }
+
+        let bloki = document.getElementsByClassName('blok')
+        for (blok of bloki){
+            blok.addEventListener('mouseenter',function (){
+                document.getElementById('k').innerHTML=this.getAttribute('x')+' '+this.getAttribute('y')
+            })
+        }
+    }
+</script>
+</body>
+</html>
