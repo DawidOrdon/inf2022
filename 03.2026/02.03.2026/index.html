@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" name="" id="in">
+    <button id="new" onclick="div()">new</button>
+    <button id="add" onclick="add()">add</button>
+    <section id="results"></section>
+    <script>
+        function div(){
+            let input = document.getElementById("in").value
+            let div = document.createElement("div")
+            div.innerText = input
+            document.getElementById("results").appendChild(div)
+        }
+        function add(){
+            let divs = document.getElementsByTagName("div");
+            for (div of divs){
+                div.addEventListener("click", function(){
+                    alert(this.innerText)
+                })
+            }
+        }
+    </script>
+</body>
+</html>
