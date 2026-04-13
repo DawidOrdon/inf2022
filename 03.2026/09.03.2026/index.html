@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<input type="number" id="h">
+<input type="number" id="a">
+<button onclick="gen()">gen</button>
+<button onclick="gen2()">gen</button>
+<div id="result"></div>
+<script>
+    function gen(){
+        const h = parseInt(document.getElementById('h').value)
+        const result = document.getElementById('result')
+        for (let i = 0;i<h;i++){
+            for (let j = 0; j<i;j++){
+                result.innerHTML+="&nbsp;"
+                result.innerHTML+="&nbsp;"
+            }
+            for (let j = 0; j<(h-i)*2-1;j++){
+                result.innerHTML+="*";
+            }
+            result.innerHTML+="<br />"
+
+        }
+    }
+    function gen2(){
+        const h = parseInt(document.getElementById('h').value)
+        const a = parseInt(document.getElementById('a').value)
+        const result = document.getElementById('result')
+        result.innerHTML=''
+        for(let i =0;i<a;i++){
+            result.innerHTML+="*";
+        }
+        result.innerHTML+="<br />"
+        for (let i=0;i<h-2;i++){
+            result.innerHTML+="*";
+            for(let j =0;j<a-2;j++){
+                result.innerHTML+="&nbsp;"
+                result.innerHTML+="&nbsp;"
+            }
+            result.innerHTML+="*";
+            result.innerHTML+="<br />"
+        }
+        for(let i =0;i<a;i++){
+            result.innerHTML+="*";
+        }
+        result.innerHTML+="<br />"
+    }
+</script>
+</body>
+</html>
