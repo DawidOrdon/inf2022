@@ -69,6 +69,7 @@
             <th>vin</th>
             <th>typ</th>
             <th>usuń</th>
+            <th>edytuj</th>
         </tr>
         <?php
             $sql="SELECT tanks.tank_id as id, tanks.name as nazwa, tanks.vin as vin, types.name as typ FROM tanks  join types on tanks.type_id = types.type_id";
@@ -82,6 +83,7 @@
                 echo "<td>{$row->vin}</td>";
                 echo "<td>{$row->typ}</td>";
                 echo "<td><a href='./delete.php?tank_id={$row->id}'><button>usuń</button></a></td>";
+                echo "<td><a href='./edit.php?tank_id={$row->id}'><button>Edit</button></a></td>";
                 echo "</tr>";
             }
         ?>
