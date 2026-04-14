@@ -38,8 +38,9 @@
 
                     //            $result = $db->query("SELECT * FROM types");
 
-                    while($row = $result->fetch_object()) {
-                        echo"<option value='".$row->type_id."'>".$row->name."</option>";
+                    while ($row = $result->fetch_object()) {
+                        $selected = ($row->type_id == $_SESSION['type_id']) ? 'selected' : '';
+                        echo "<option value='{$row->type_id}' {$selected}>{$row->name}</option>";
                     }
                     ?>
                 </select></td>
@@ -55,14 +56,38 @@
         ?>
         <?php
         if(isset($_SESSION['message'])){
-            echo "<tr><td colspan='2' style='color: green'>{$_SESSION['error']}</td></tr>";
-            unset($_SESSION['error']);
+            echo "<tr><td colspan='2' style='color: green'>{$_SESSION['message']}</td></tr>";
+            unset($_SESSION['message']);
         }
+        ?>
+    </table>
+</form>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>nazwa</th>
+            <th>vin</th>
+            <th>typ</th>
+            <th>usuń</th>
+        </tr>
+        <?php
+            $sql="SELECT tanks.tank_id as id, tanks.name as nazwa, tanks.vin as vin, types.name as typ FROM tanks  join types on tanks.type_id = types.type_id";
+            $query = $db->prepare($sql);
+            $query->execute();
+            $result = $query->get_result();
+            while ($row = $result->fetch_object()) {
+                echo "<tr>";
+                echo "<td>{$row->id}</td>";
+                echo "<td>{$row->nazwa}</td>";
+                echo "<td>{$row->vin}</td>";
+                echo "<td>{$row->typ}</td>";
+                echo "<td><a href='./delete.php?tank_id={$row->id}'><button>usuń</button></a></td>";
+                echo "</tr>";
+            }
         ?>
     </table>
 
 
 
-</form>
 </body>
 </html>

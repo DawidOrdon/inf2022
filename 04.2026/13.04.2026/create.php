@@ -8,6 +8,9 @@ if (!empty($_POST['name'])&&!empty($_POST['vin'])&&!empty($_POST['type_id'])&&is
     $query->bind_param('ssi', $_POST['name'], $_POST['vin'], $_POST['type_id']);
     $query->execute();
     $_SESSION['message'] = "Czołg dodany";
+    unset($_SESSION['name']);
+    unset($_SESSION['vin']);
+    unset($_SESSION['type_id']);
     header('location: ./index.php');
 }else{
     $_SESSION['name']=$_POST['name'];
