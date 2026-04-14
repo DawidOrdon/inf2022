@@ -17,7 +17,8 @@ $row=$result->fetch_object();
     <title>Document</title>
 </head>
 <body>
-<form action="./create.php" method="post">
+<form action="./update.php" method="post">
+    <input type="hidden" name="tank_id" value="<?php echo $row->tank_id;?>">
     <table>
         <tr>
             <td><label for="name">Nazwa</label></td>
