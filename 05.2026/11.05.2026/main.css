@@ -1,0 +1,54 @@
+body{
+    font-family: Georgia, serif;
+    text-align: center;
+}
+nav{
+    background-color: #388E3C;
+    color:white;
+    height: 100px;
+    float: left;
+}
+#nav1{
+    width: 20%;
+}
+#nav2{
+    width: 80%;
+}
+section{
+    background-color: #DCE775;
+    width: 50%;
+    height: 600px;
+    float: left;
+}
+footer{
+    background-color:  #388E3C;
+    color: white;
+    float: left;
+    clear: both;
+    width: 100%;
+}
+main{
+    float: left;
+    clear: both;
+}
+table{
+    width: 80%;
+    margin: auto;
+    border: 2px dashed #388E3C;
+}
+table > img{
+    height: 70px;
+}
+a{
+    color: #388E3C;
+    margin: 20px;
+    font-size: 200%;
+    font-style: italic;
+}
+p{
+    margin: 0;
+}
+a:hover{
+    background-color: #388E3C;
+    color: #DCE775;
+}
