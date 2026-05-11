@@ -22,7 +22,16 @@
 <body>
     <div>
         <div id="l" onclick="cos(1)"><</div>
-        <div id="img"><img src="1.jpg" alt="" id="zdj"></div>
+        <div id="img">
+            <div>
+                <img src="1.jpg" alt="" id="zdj">
+            </div>
+            <div style="clear: both">
+                <img src="10.jpg" alt="" id="p" width="25">
+                <img src="1.jpg" alt="" id="a" width="40">
+                <img src="2.jpg" alt="" id="n" width="25">
+            </div>
+        </div>
         <div id="r" onclick="cos(0)">></div>
         <input type="range" min="1" max="10" onchange="skip(this)">
     </div>
@@ -44,6 +53,17 @@
                 }
             }
             document.getElementById('zdj').src=img+".jpg"
+            document.getElementById('a').src=img+".jpg"
+            if(img==1){
+                document.getElementById('p').src=max+".jpg"
+                document.getElementById('n').src=img+1+".jpg"
+            }else if (img==max){
+                document.getElementById('p').src=img-1+".jpg"
+                document.getElementById('n').src=1+".jpg"
+            }else{
+                document.getElementById('p').src=img-1+".jpg"
+                document.getElementById('n').src=img+1+".jpg"
+            }
         }
         function skip(number){
             document.getElementById('zdj').src=number.value+".jpg"
